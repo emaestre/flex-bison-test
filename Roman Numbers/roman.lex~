@@ -1,0 +1,32 @@
+/* ********************************* *
+ * Archivo para el Lex  			 *
+ * Autores:                          *
+ *		Eleazar Maestre - 24300665   * 
+ *		Luis Gonzalez   - 21241236   *
+ * ********************************* */
+
+/* Librerias usadas por C */
+%{
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include "roman.tab.h"
+%}
+
+/* Declaracion de expresiones regulares */
+white [ \t]+
+other [^MDCLVXI\n]+
+
+%%
+
+{white} return BLANCO;
+{other} return COMPLE;       
+"M" return MIL;
+"D" return QUINIENTOS;
+"C" return CIEN;
+"L" return CINCUENTA;
+"V" return CINCO;
+"X" return DIEZ;
+"I" return UNO;
+"\n" return END;
+
+%%
